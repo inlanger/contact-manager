@@ -8,6 +8,7 @@
 * Redux Form
 * Node.js + Express
 * MongoDB
+* Webpack
 
 ## Getting Started
 1. Clone this repository
