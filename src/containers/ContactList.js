@@ -31,7 +31,7 @@ class ContactList extends React.Component {
             Create Contact
           </Link>
         ) : (
-          <ContactForm onSubmit={this.handleSubmit} onContactList="true" />
+          <ContactForm onSubmit={this.handleSubmit} />
         )}
         <table className="table">
           <thead>
