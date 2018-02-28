@@ -4,6 +4,10 @@ import { Link, withRouter } from 'react-router-dom';
 import { contactAdd } from '../actions';
 import ContactForm from './ContactForm';
 
+function randomDate(start, end) {
+  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+}
+
 class ContactCreate extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +16,10 @@ class ContactCreate extends React.Component {
 
   handleSubmit(values) {
     const { name, phone, email } = values;
-    this.props.onSubmit({ name, phone, email });
+    // const newDate = new Date();
+    const newDate = randomDate(new Date(2013, 0, 1), new Date());
+    const date = `${newDate.getFullYear()}-${newDate.getMonth()}-${newDate.getDate()}`;
+    this.props.onSubmit({ name, phone, email, date });
     this.props.history.push("/");
   }
 

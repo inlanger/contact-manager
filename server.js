@@ -59,7 +59,8 @@ app.get('/contacts', (req, res) => {
           id: doc._id,
           name: doc.name,
           phone: doc.phone,
-          email: doc.email
+          email: doc.email,
+          date: doc.date
         });
       });
 
@@ -77,7 +78,8 @@ app.get('/contacts/:id', (req, res) => {
         id: doc._id,
         name: doc.name,
         phone: doc.phone,
-        email: doc.email
+        email: doc.email,
+        date: doc.date
       });
     }
   })
@@ -104,6 +106,7 @@ app.put('/contacts/:id', (req, res) => {
   let { body } = req;
 
   delete body.id;
+  delete body.date;
 
   db.collection(dbName).updateOne({ _id: new ObjectID(req.params.id) }, { $set: body }, (error, doc) => {
     if (error) {
@@ -125,7 +128,7 @@ app.delete('/contacts/:id', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'public/index.html'));
+  res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
 const handleError = (res, reason, message, code) => {

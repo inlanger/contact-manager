@@ -57,6 +57,8 @@ class ContactForm extends React.Component {
           validate={this.required}
         />
 
+        <Field name="date" type="hidden" component="input" />
+
         <fieldset className="form-group">
           <button type="submit" disabled={pristine || submitting} className="btn btn-success">Submit</button>&nbsp;
           <button type="button" disabled={pristine || submitting} className="btn btn-default" onClick={reset}>Reset</button>&nbsp;
